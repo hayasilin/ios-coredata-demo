@@ -21,11 +21,11 @@ class ViewController: UIViewController {
         viewContext = app.persistentContainer.viewContext
         print(NSPersistentContainer.defaultDirectoryURL())
         
-//        insertPersonData()
+        insertPersonData()
         queryPersonData()
-//        deletePersonsOneByOne()
-//        insertPersonData()
-//        queryWithPredicate()
+        deletePersonsOneByOne()
+        insertPersonData()
+        queryWithPredicate()
         deletePersonsBatch()
     }
     
