@@ -48,7 +48,7 @@ class ViewController: UIViewController {
             let allPersons = try viewContext.fetch(Person.fetchRequest())
             for person in allPersons as! [Person] {
                 print(#function)
-                print("\(person.birthday), \(person.firstName), \(person.lastName)")
+                print("\(String(describing: person.birthday)), \(String(describing: person.firstName)), \(String(describing: person.lastName))")
             }
         } catch {
             print(error)
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
             let persons = try viewContext.fetch(personFetchRequest)
             for person in persons {
                 print(#function)
-                print("\(person.birthday), \(person.firstName), \(person.lastName)")
+                print("\(String(describing: person.birthday)), \(String(describing: person.firstName)), \(String(describing: person.lastName))")
             }
         } catch {
             print(error)

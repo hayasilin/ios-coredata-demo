@@ -16,7 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let peopleListVC = PeopleListTableViewController()
+        let navigationController = UINavigationController(rootViewController: peopleListVC)
+        
+        let dataProvider = PeopleListDataProvider()
+        dataProvider.managedObjectContext = persistentContainer.viewContext
+        peopleListVC.dataProvider = dataProvider
+        
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        
         return true
     }
 

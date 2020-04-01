@@ -17,6 +17,12 @@
 		651B3AE724341FCF00607505 /* MockingObjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651B3AE624341FCF00607505 /* MockingObjectUITests.swift */; };
 		651B3B002434274E00607505 /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651B3AFE2434274E00607505 /* Person+CoreDataClass.swift */; };
 		651B3B012434274E00607505 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651B3AFF2434274E00607505 /* Person+CoreDataProperties.swift */; };
+		651B3B0324342F0B00607505 /* PersonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651B3B0224342F0B00607505 /* PersonInfo.swift */; };
+		651B3B052434335900607505 /* PeopleListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651B3B042434335900607505 /* PeopleListDataProvider.swift */; };
+		651B3B0724345BD000607505 /* PeopleListDataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651B3B0624345BD000607505 /* PeopleListDataProviderProtocol.swift */; };
+		651B3B0924345C6500607505 /* PeopleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651B3B0824345C6500607505 /* PeopleListTableViewController.swift */; };
+		651B3B0B24345CBA00607505 /* APICommunicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651B3B0A24345CBA00607505 /* APICommunicatorProtocol.swift */; };
+		651B3B0D24345DA300607505 /* APICommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651B3B0C24345DA300607505 /* APICommunicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,12 @@
 		651B3AE824341FCF00607505 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		651B3AFE2434274E00607505 /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
 		651B3AFF2434274E00607505 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		651B3B0224342F0B00607505 /* PersonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfo.swift; sourceTree = "<group>"; };
+		651B3B042434335900607505 /* PeopleListDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListDataProvider.swift; sourceTree = "<group>"; };
+		651B3B0624345BD000607505 /* PeopleListDataProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListDataProviderProtocol.swift; sourceTree = "<group>"; };
+		651B3B0824345C6500607505 /* PeopleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListTableViewController.swift; sourceTree = "<group>"; };
+		651B3B0A24345CBA00607505 /* APICommunicatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICommunicatorProtocol.swift; sourceTree = "<group>"; };
+		651B3B0C24345DA300607505 /* APICommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICommunicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +124,12 @@
 				651B3ACF24341FCF00607505 /* LaunchScreen.storyboard */,
 				651B3AD224341FCF00607505 /* Info.plist */,
 				651B3ACA24341FCD00607505 /* MockingObject.xcdatamodeld */,
+				651B3B0224342F0B00607505 /* PersonInfo.swift */,
+				651B3B042434335900607505 /* PeopleListDataProvider.swift */,
+				651B3B0624345BD000607505 /* PeopleListDataProviderProtocol.swift */,
+				651B3B0824345C6500607505 /* PeopleListTableViewController.swift */,
+				651B3B0A24345CBA00607505 /* APICommunicatorProtocol.swift */,
+				651B3B0C24345DA300607505 /* APICommunicator.swift */,
 			);
 			path = MockingObject;
 			sourceTree = "<group>";
@@ -267,9 +285,15 @@
 			files = (
 				651B3B002434274E00607505 /* Person+CoreDataClass.swift in Sources */,
 				651B3B012434274E00607505 /* Person+CoreDataProperties.swift in Sources */,
+				651B3B0924345C6500607505 /* PeopleListTableViewController.swift in Sources */,
 				651B3AC624341FCD00607505 /* ViewController.swift in Sources */,
 				651B3AC424341FCD00607505 /* AppDelegate.swift in Sources */,
+				651B3B0D24345DA300607505 /* APICommunicator.swift in Sources */,
+				651B3B052434335900607505 /* PeopleListDataProvider.swift in Sources */,
+				651B3B0324342F0B00607505 /* PersonInfo.swift in Sources */,
+				651B3B0B24345CBA00607505 /* APICommunicatorProtocol.swift in Sources */,
 				651B3ACC24341FCD00607505 /* MockingObject.xcdatamodeld in Sources */,
+				651B3B0724345BD000607505 /* PeopleListDataProviderProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G62233X968;
 				INFOPLIST_FILE = MockingObject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,6 +490,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G62233X968;
 				INFOPLIST_FILE = MockingObject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
