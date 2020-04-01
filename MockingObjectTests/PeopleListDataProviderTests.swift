@@ -10,8 +10,8 @@ import XCTest
 import CoreData
 @testable import MockingObject
 
+// Fakes
 class PeopleListDataProviderTests: XCTestCase {
-    
     var storeCoordinator: NSPersistentStoreCoordinator!
     var managedObjectContext: NSManagedObjectContext!
     var managedObjectModel: NSManagedObjectModel!
@@ -24,15 +24,10 @@ class PeopleListDataProviderTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        // 1
         managedObjectModel = NSManagedObjectModel.mergedModel(from: nil)
         storeCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
         do {
-            store = try storeCoordinator.addPersistentStore(
-                ofType: NSInMemoryStoreType,
-                configurationName: nil,
-                at: nil,
-                options: nil)
+            store = try storeCoordinator.addPersistentStore(ofType: NSInMemoryStoreType, configurationName: nil, at: nil, options: nil)
         } catch {
             print(error)
         }
@@ -40,7 +35,6 @@ class PeopleListDataProviderTests: XCTestCase {
         managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = storeCoordinator
         
-        // 2
         dataProvider = PeopleListDataProvider()
         dataProvider.managedObjectContext = managedObjectContext
         dataProvider.setUpCoreData()
@@ -72,6 +66,4 @@ class PeopleListDataProviderTests: XCTestCase {
         
         XCTAssertEqual(tableView.dataSource!.tableView(tableView, numberOfRowsInSection: 0), 1, "After adding one person number of rows is not 1")
     }
-
-
 }
