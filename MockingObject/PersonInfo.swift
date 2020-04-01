@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import AddressBookUI
+import ContactsUI
 
 struct PersonInfo {
     let firstName: String
@@ -20,9 +20,11 @@ struct PersonInfo {
         self.birthday = birthday
     }
     
-    init(abRecord: ABRecord) {
-        firstName = ABRecordCopyValue(abRecord, kABPersonFirstNameProperty)?.takeRetainedValue() as! String
-        lastName = ABRecordCopyValue(abRecord, kABPersonLastNameProperty)?.takeRetainedValue() as! String
-        birthday = ABRecordCopyValue(abRecord, kABPersonBirthdayProperty)?.takeRetainedValue() as! NSDate
+    init(contact: CNContact) {
+        firstName = contact.givenName
+        lastName = contact.familyName
+        let userCalendar = Calendar.current
+        let someDateTime = userCalendar.date(from: contact.birthday!)
+        birthday = someDateTime! as NSDate
     }
 }

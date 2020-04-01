@@ -8,7 +8,7 @@
 
 import XCTest
 import CoreData
-import AddressBookUI
+import ContactsUI
 @testable import MockingObject
 
 // Mocks
@@ -44,12 +44,20 @@ class PeopleListTableViewControllerTests: XCTestCase {
         viewController.dataProvider = mockDataSource
         
         // when
-        let record: ABRecord = ABPersonCreate().takeRetainedValue()
-        ABRecordSetValue(record, kABPersonFirstNameProperty, "TestFirstname" as CFTypeRef, nil)
-        ABRecordSetValue(record, kABPersonLastNameProperty, "TestLastname" as CFTypeRef, nil)
-        ABRecordSetValue(record, kABPersonBirthdayProperty, NSDate(), nil)
-        viewController.peoplePickerNavigationController(ABPeoplePickerNavigationController(),
-                                                        didSelectPerson: record)
+        let contact = CNMutableContact()
+        contact.givenName = "TestFirstname"
+        contact.familyName = "TestLastname"
+        var dateComponents = DateComponents()
+        dateComponents.year = 1980
+        dateComponents.month = 7
+        dateComponents.day = 11
+        dateComponents.hour = 8
+        dateComponents.minute = 34
+        dateComponents.timeZone = .current
+        contact.birthday = dateComponents
+
+        viewController.contactPicker(CNContactPickerViewController(), didSelect: contact)
+    
         // then
         XCTAssert(mockDataSource.addPersonGotCalled, "addPerson should have been called")
     }

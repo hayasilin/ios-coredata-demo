@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-import AddressBookUI
+import ContactsUI
 
 class PeopleListTableViewController: UITableViewController {
     var dataProvider: PeopleListDataProviderProtocol?
@@ -42,8 +42,8 @@ class PeopleListTableViewController: UITableViewController {
     }
     
     @objc func addPerson(sender: UIBarButtonItem) {
-        let picker = ABPeoplePickerNavigationController()
-        picker.peoplePickerDelegate = self
+        let picker = CNContactPickerViewController()
+        picker.delegate = self
         present(picker, animated: true, completion: nil)
     }
     
@@ -67,9 +67,9 @@ class PeopleListTableViewController: UITableViewController {
     }
 }
 
-extension PeopleListTableViewController: ABPeoplePickerNavigationControllerDelegate {
-    func peoplePickerNavigationController(_ peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord) {
-        let personInfo = PersonInfo(abRecord: person)
+extension PeopleListTableViewController: CNContactPickerDelegate {
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
+        let personInfo = PersonInfo(contact: contact)
         dataProvider?.addPerson(personInfo: personInfo)
     }
 }
