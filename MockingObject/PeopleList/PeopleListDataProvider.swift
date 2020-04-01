@@ -18,7 +18,7 @@ class PeopleListDataProvider: NSObject, PeopleListDataProviderProtocol, NSFetche
     let dateFormatter: DateFormatter = DateFormatter()
     
     let fetchRequest = NSFetchRequest<Person>()
-    var entity: NSEntityDescription!
+    var entity: NSEntityDescription?
     
     override init() {
         super.init()
@@ -52,7 +52,6 @@ class PeopleListDataProvider: NSObject, PeopleListDataProviderProtocol, NSFetche
         } catch {
             print(error)
         }
-        
     }
     
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: IndexPath) {

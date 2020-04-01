@@ -9,16 +9,14 @@
 import UIKit
 import CoreData
 
+// CoreDate demo code
 class ViewController: UIViewController {
-    
-    let app = UIApplication.shared.delegate as! AppDelegate
+    let app = UIApplication.shared.delegate as? AppDelegate
     var viewContext: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        viewContext = app.persistentContainer.viewContext
+        viewContext = app?.persistentContainer.viewContext
         print(NSPersistentContainer.defaultDirectoryURL())
         
         insertPersonData()
@@ -30,7 +28,7 @@ class ViewController: UIViewController {
     }
     
     func insertPersonData() {
-        var person = NSEntityDescription.insertNewObject(forEntityName: "Person", into: viewContext) as! Person
+        guard var person = NSEntityDescription.insertNewObject(forEntityName: "Person", into: viewContext) as? Person else { return }
         person.birthday = NSDate()
         person.lastName = "lin"
         person.firstName = "david"
@@ -40,7 +38,7 @@ class ViewController: UIViewController {
         person.lastName = "cheng"
         person.firstName = "ellen"
         
-        app.saveContext()
+        app?.saveContext()
     }
     
     func queryPersonData() {
@@ -79,7 +77,7 @@ class ViewController: UIViewController {
                 print(#function)
                 viewContext.delete(person)
             }
-            app.saveContext()
+            app?.saveContext()
         } catch {
             print(error)
         }
@@ -88,7 +86,7 @@ class ViewController: UIViewController {
     func deletePersonsBatch() {
         let batch = NSBatchDeleteRequest(fetchRequest: Person.fetchRequest())
         do {
-            try app.persistentContainer.persistentStoreCoordinator.execute(batch, with: viewContext)
+            try app?.persistentContainer.persistentStoreCoordinator.execute(batch, with: viewContext)
         } catch {
             print(error)
         }

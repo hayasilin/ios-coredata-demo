@@ -14,12 +14,6 @@ struct PersonInfo {
     let lastName: String
     let birthday: NSDate
     
-    init(firstName: String, lastName: String, birthday: NSDate) {
-        self.firstName = firstName
-        self.lastName = lastName
-        self.birthday = birthday
-    }
-    
     init(contact: CNContact) {
         firstName = contact.givenName
         lastName = contact.familyName

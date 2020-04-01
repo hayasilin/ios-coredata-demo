@@ -123,19 +123,16 @@
 		651B3AC224341FCD00607505 /* MockingObject */ = {
 			isa = PBXGroup;
 			children = (
+				651B3AD224341FCF00607505 /* Info.plist */,
 				651B3AC324341FCD00607505 /* AppDelegate.swift */,
 				651B3AC524341FCD00607505 /* ViewController.swift */,
-				651B3AC724341FCD00607505 /* Main.storyboard */,
 				651B3ACD24341FCF00607505 /* Assets.xcassets */,
+				651B3B162434E69700607505 /* API */,
 				651B3ACF24341FCF00607505 /* LaunchScreen.storyboard */,
-				651B3AD224341FCF00607505 /* Info.plist */,
+				651B3AC724341FCD00607505 /* Main.storyboard */,
 				651B3ACA24341FCD00607505 /* MockingObject.xcdatamodeld */,
-				651B3B0224342F0B00607505 /* PersonInfo.swift */,
-				651B3B042434335900607505 /* PeopleListDataProvider.swift */,
-				651B3B0624345BD000607505 /* PeopleListDataProviderProtocol.swift */,
-				651B3B0824345C6500607505 /* PeopleListTableViewController.swift */,
-				651B3B0A24345CBA00607505 /* APICommunicatorProtocol.swift */,
-				651B3B0C24345DA300607505 /* APICommunicator.swift */,
+				651B3B152434E69000607505 /* Model */,
+				651B3B142434E68700607505 /* PeopleList */,
 			);
 			path = MockingObject;
 			sourceTree = "<group>";
@@ -143,11 +140,11 @@
 		651B3ADA24341FCF00607505 /* MockingObjectTests */ = {
 			isa = PBXGroup;
 			children = (
-				651B3ADB24341FCF00607505 /* MockingObjectTests.swift */,
 				651B3ADD24341FCF00607505 /* Info.plist */,
+				651B3B122434C61700607505 /* APICommunicatorTests.swift */,
+				651B3ADB24341FCF00607505 /* MockingObjectTests.swift */,
 				651B3B0E243466A200607505 /* PeopleListDataProviderTests.swift */,
 				651B3B102434BED700607505 /* PeopleListTableViewControllerTests.swift */,
-				651B3B122434C61700607505 /* APICommunicatorTests.swift */,
 			);
 			path = MockingObjectTests;
 			sourceTree = "<group>";
@@ -159,6 +156,33 @@
 				651B3AE824341FCF00607505 /* Info.plist */,
 			);
 			path = MockingObjectUITests;
+			sourceTree = "<group>";
+		};
+		651B3B142434E68700607505 /* PeopleList */ = {
+			isa = PBXGroup;
+			children = (
+				651B3B042434335900607505 /* PeopleListDataProvider.swift */,
+				651B3B0624345BD000607505 /* PeopleListDataProviderProtocol.swift */,
+				651B3B0824345C6500607505 /* PeopleListTableViewController.swift */,
+			);
+			path = PeopleList;
+			sourceTree = "<group>";
+		};
+		651B3B152434E69000607505 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				651B3B0224342F0B00607505 /* PersonInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		651B3B162434E69700607505 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				651B3B0A24345CBA00607505 /* APICommunicatorProtocol.swift */,
+				651B3B0C24345DA300607505 /* APICommunicator.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
