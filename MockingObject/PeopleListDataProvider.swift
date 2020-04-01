@@ -57,7 +57,7 @@ class PeopleListDataProvider: NSObject, PeopleListDataProviderProtocol, NSFetche
     
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: IndexPath) {
         let person = fetchedResultsController?.object(at: indexPath)
-        cell.textLabel?.text = "\(String(describing: person!.firstName)) \(String(describing: person!.lastName))"
+        cell.textLabel?.text = "\(person!.firstName ?? "") \(person!.lastName ?? "")"
         cell.detailTextLabel?.text = dateFormatter.string(from: person!.birthday! as Date)
     }
     
@@ -87,7 +87,7 @@ extension PeopleListDataProvider: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         configureCell(cell: cell, atIndexPath: indexPath)
         return cell
     }
@@ -99,7 +99,7 @@ extension PeopleListDataProvider: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let context = fetchedResultsController?.managedObjectContext
-            context?.delete(fetchedResultsController?.object(at: indexPath) as! NSManagedObject)
+            context?.delete((fetchedResultsController?.object(at: indexPath))!)
             
             do {
                 try context?.save()

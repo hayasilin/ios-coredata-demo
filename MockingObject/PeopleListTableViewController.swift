@@ -17,19 +17,28 @@ class PeopleListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureViews()
+        tableView.dataSource = dataProvider
+        tableView.delegate = self
+        dataProvider?.tableView = tableView
+        dataProvider?.fetch()
+    }
+    
+    func configureViews() {
         self.clearsSelectionOnViewWillAppear = false
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addPerson(sender:)))
-        let sortButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(changeSorting(sender:)))
-        navigationItem.leftBarButtonItems = [addButton, sortButton]
-        tableView.dataSource = dataProvider
+        navigationItem.leftBarButtonItem = addButton
+        
+        let segmentedControl: UISegmentedControl = UISegmentedControl(items: ["Last Name", "First Name"])
+        segmentedControl.sizeToFit()
+        segmentedControl.selectedSegmentIndex = 0;
+        segmentedControl.addTarget(self, action: #selector(changeSorting(sender:)), for: .valueChanged)
+        self.navigationItem.titleView = segmentedControl
         
         tableView.frame = UIScreen.main.bounds
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-        dataProvider?.tableView = tableView
-        dataProvider?.fetch()
     }
     
     @objc func addPerson(sender: UIBarButtonItem) {
@@ -51,8 +60,9 @@ class PeopleListTableViewController: UITableViewController {
         print(communicator.postPerson(personInfo: personInfo)!)
     }
     
-    @objc func changeSorting(sender: UIBarButtonItem) {
-        userDefaults.set(0, forKey: "sort")
+    @objc func changeSorting(sender: UISegmentedControl) {
+        userDefaults.set(sender.selectedSegmentIndex, forKey: "sort")
+        userDefaults.synchronize()
         dataProvider?.fetch()
     }
 }
