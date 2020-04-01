@@ -11,7 +11,6 @@ import CoreData
 import AddressBookUI
 
 class PeopleListTableViewController: UITableViewController {
-    
     var dataProvider: PeopleListDataProviderProtocol?
     var userDefaults = UserDefaults.standard
     var communicator: APICommunicatorProtocol = APICommunicator()
@@ -27,8 +26,10 @@ class PeopleListTableViewController: UITableViewController {
         tableView.dataSource = dataProvider
         
         tableView.frame = UIScreen.main.bounds
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         dataProvider?.tableView = tableView
+        dataProvider?.fetch()
     }
     
     @objc func addPerson(sender: UIBarButtonItem) {

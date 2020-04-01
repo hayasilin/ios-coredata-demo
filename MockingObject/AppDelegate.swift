@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let dataProvider = PeopleListDataProvider()
         dataProvider.managedObjectContext = persistentContainer.viewContext
+        dataProvider.setUpCoreData()
         peopleListVC.dataProvider = dataProvider
         
         window?.rootViewController = navigationController
