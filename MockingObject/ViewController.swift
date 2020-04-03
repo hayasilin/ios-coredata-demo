@@ -19,12 +19,13 @@ class ViewController: UIViewController {
         viewContext = app?.persistentContainer.viewContext
         print(NSPersistentContainer.defaultDirectoryURL())
         
-        insertPersonData()
-        queryPersonData()
-        deletePersonsOneByOne()
-        insertPersonData()
-        queryWithPredicate()
-        deletePersonsBatch()
+//        insertPersonData()
+//        queryPersonData()
+//        deletePersonsOneByOne()
+//        insertPersonData()
+//        queryWithPredicate()
+//        deletePersonsBatch()
+//        queryPersonData()
     }
     
     func insertPersonData() {
@@ -38,35 +39,47 @@ class ViewController: UIViewController {
         person.lastName = "cheng"
         person.firstName = "ellen"
         
-        app?.saveContext()
+//        app?.saveContext()
+        do {
+            try viewContext.save()
+        } catch {
+            print(error)
+        }
     }
     
-    func queryPersonData() {
+    func queryPersonData() -> [Person] {
+        var allPersons = [Person]()
         do {
-            let allPersons = try viewContext.fetch(Person.fetchRequest())
-            for person in allPersons as! [Person] {
+            allPersons = try viewContext.fetch(Person.fetchRequest())
+            for person in allPersons {
                 print(#function)
                 print("\(String(describing: person.birthday)), \(String(describing: person.firstName)), \(String(describing: person.lastName))")
             }
         } catch {
             print(error)
         }
+        
+        return allPersons
     }
     
-    func queryWithPredicate() {
+    func queryWithPredicate() -> [Person] {
         let personFetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
         let predicate = NSPredicate(format: "lastName like 'lin*'")
         personFetchRequest.predicate = predicate
         
+        var allPersons = [Person]()
+        
         do {
-            let persons = try viewContext.fetch(personFetchRequest)
-            for person in persons {
+            allPersons = try viewContext.fetch(personFetchRequest)
+            for person in allPersons {
                 print(#function)
                 print("\(String(describing: person.birthday)), \(String(describing: person.firstName)), \(String(describing: person.lastName))")
             }
         } catch {
             print(error)
         }
+        
+        return allPersons
     }
     
     func deletePersonsOneByOne() {
@@ -77,7 +90,12 @@ class ViewController: UIViewController {
                 print(#function)
                 viewContext.delete(person)
             }
-            app?.saveContext()
+//            app?.saveContext()
+            do {
+                try viewContext.save()
+            } catch {
+                print(error)
+            }
         } catch {
             print(error)
         }
@@ -86,7 +104,8 @@ class ViewController: UIViewController {
     func deletePersonsBatch() {
         let batch = NSBatchDeleteRequest(fetchRequest: Person.fetchRequest())
         do {
-            try app?.persistentContainer.persistentStoreCoordinator.execute(batch, with: viewContext)
+//            try app?.persistentContainer.persistentStoreCoordinator.execute(batch, with: viewContext)
+            try viewContext.persistentStoreCoordinator?.execute(batch, with: viewContext)
         } catch {
             print(error)
         }

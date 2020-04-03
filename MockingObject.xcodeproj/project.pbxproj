@@ -26,6 +26,7 @@
 		651B3B0F243466A200607505 /* PeopleListDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651B3B0E243466A200607505 /* PeopleListDataProviderTests.swift */; };
 		651B3B112434BED700607505 /* PeopleListTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651B3B102434BED700607505 /* PeopleListTableViewControllerTests.swift */; };
 		651B3B132434C61700607505 /* APICommunicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651B3B122434C61700607505 /* APICommunicatorTests.swift */; };
+		651B3B18243725ED00607505 /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651B3B17243725ED00607505 /* ViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		651B3B0E243466A200607505 /* PeopleListDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListDataProviderTests.swift; sourceTree = "<group>"; };
 		651B3B102434BED700607505 /* PeopleListTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListTableViewControllerTests.swift; sourceTree = "<group>"; };
 		651B3B122434C61700607505 /* APICommunicatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICommunicatorTests.swift; sourceTree = "<group>"; };
+		651B3B17243725ED00607505 /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				651B3ADB24341FCF00607505 /* MockingObjectTests.swift */,
 				651B3B0E243466A200607505 /* PeopleListDataProviderTests.swift */,
 				651B3B102434BED700607505 /* PeopleListTableViewControllerTests.swift */,
+				651B3B17243725ED00607505 /* ViewControllerTests.swift */,
 			);
 			path = MockingObjectTests;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				651B3B18243725ED00607505 /* ViewControllerTests.swift in Sources */,
 				651B3B112434BED700607505 /* PeopleListTableViewControllerTests.swift in Sources */,
 				651B3ADC24341FCF00607505 /* MockingObjectTests.swift in Sources */,
 				651B3B0F243466A200607505 /* PeopleListDataProviderTests.swift in Sources */,

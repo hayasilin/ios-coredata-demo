@@ -18,12 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let peopleListVC = PeopleListTableViewController()
         let navigationController = UINavigationController(rootViewController: peopleListVC)
-        
+
         let dataProvider = PeopleListDataProvider()
         dataProvider.managedObjectContext = persistentContainer.viewContext
         dataProvider.setUpCoreData()
         peopleListVC.dataProvider = dataProvider
-        
+
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
