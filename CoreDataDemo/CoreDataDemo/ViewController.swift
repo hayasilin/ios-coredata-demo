@@ -19,12 +19,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
 
         let addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addItem))
         let filterBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(filterItem))
         let sortBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(sortItem))
-        navigationItem.rightBarButtonItems = [addBarButtonItem, filterBarButtonItem, sortBarButtonItem]
+        let goNextPageBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(goNextPage))
+
+        navigationItem.rightBarButtonItems = [addBarButtonItem, filterBarButtonItem, sortBarButtonItem, goNextPageBarButtonItem]
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
 
@@ -119,6 +120,12 @@ class ViewController: UIViewController {
 
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
+    }
+
+    @objc
+    func goNextPage(_ sender: UIBarButtonItem) {
+        let tokenVC = TokenViewController()
+        navigationController?.pushViewController(tokenVC, animated: true)
     }
 }
 

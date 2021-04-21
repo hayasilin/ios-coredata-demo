@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Family" representedClassName="Family" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="people" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="family" inverseEntity="Person"/>
@@ -10,8 +10,17 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="family" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Family" inverseName="people" inverseEntity="Family"/>
     </entity>
+    <entity name="Token" representedClassName="Token" syncable="YES">
+        <attribute name="encryptedToken" optional="YES" attributeType="Binary"/>
+        <attribute name="expirationDate" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="tokenId" optional="YES" attributeType="String"/>
+        <fetchIndex name="byTokenIdIndex">
+            <fetchIndexElement property="tokenId" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
     <elements>
-        <element name="Person" positionX="-63" positionY="-18" width="128" height="103"/>
         <element name="Family" positionX="-63" positionY="9" width="128" height="73"/>
+        <element name="Person" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Token" positionX="-54" positionY="18" width="128" height="88"/>
     </elements>
 </model>
